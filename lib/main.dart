@@ -1,6 +1,8 @@
 import 'package:expenseapp/transaction.dart';
 import 'package:flutter/material.dart';
 
+import 'package:intl/intl.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -56,7 +58,7 @@ class MyHomePage extends StatelessWidget {
                           width: 2,
                         )),
                         padding: EdgeInsets.all(10),
-                        child: Text(tx.amount.toString(),
+                        child: Text("\$${tx.amount} ",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
@@ -68,7 +70,8 @@ class MyHomePage extends StatelessWidget {
                           Text(tx.title,
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold)),
-                          Text(tx.date.toString(),
+                          Text(
+                            DateFormat.yMMMd().format(tx.date),
                           style: TextStyle(color: Colors.grey))
                         ])
                   ],
